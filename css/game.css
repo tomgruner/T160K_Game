@@ -277,3 +277,7 @@ height:80px;
 #copyright a {
   color: #3e3a3a;
 }
+
+#play-it-again {
+  cursor:pointer;
+}
