@@ -4019,13 +4019,11 @@
      = (boolean) `true` if point inside the shape
     \*/
     elproto.isPointInside = function (x, y) {
-        //CUSTOM - see https://github.com/DmitryBaranovskiy/raphael/issues/538
-        var rp = this.realPath = this.realPath || getPath[this.type](this);
-        if (this.attr('transform') && this.attr('transform').length) {
-            rp = R.transformPath(rp, this.attr('transform'));
-        }
-        return R.isPointInsidePath(rp, x, y);
-    };
+            var rp = this.realPath = this.realPath || getPath[this.type](this),
+                tr;
+            return R.isPointInsidePath(((tr = this.attr('transform')) && 
+                tr.length && R.transformPath(rp, tr)) || rp, x, y);
+        };
     /*\
      * Element.getBBox
      [ method ]

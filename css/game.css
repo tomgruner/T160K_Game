@@ -10,6 +10,11 @@ img {
   border:0px;
 }
 
+a {
+  color:orange;
+  text-decoration: none;
+}
+
 #container {
   width:760px;
   margin:40px auto;

@@ -34,19 +34,18 @@
 
       var offset = (Math.tan(self.angle * Math.PI / 180) * self.canvas.height);
 
-
       var config = self.config,
           startPoint = Math.floor(Math.random() * self.canvas.width),
-          shapeMatrix = [startPoint + offset, 0, config.size * 0.1, config.size],
           factor = Math.random(),
-          drop = self.canvas.ellipse.apply(self.canvas, shapeMatrix),
-          speed = config.speed * (1 + factor),
-          cx = startPoint;
+          speed = config.speed * (1 + factor);
+
+      var scale = self.config.size / 10;
+
+      var drop = self.canvas.image('images/drop_1.png', startPoint, -30, 18*scale,30*scale);
 
       drop
-        .attr({stroke: config.color, opacity: 1 - factor + .3, fill: config.color})
         .rotate(self.angle)
-        .animate({cy: self.canvas.height + (20 * Math.abs(self.angle)), cx: cx}, speed, function() { delete self.drops[drop.id]; drop.remove();  });
+        .animate({transform: 'r' + self.angle + 't0' + ',' + (self.canvas.height + Math.abs(offset /2))}, speed, function() { delete self.drops[drop.id]; drop.remove();  });
 
       self.drops[drop.id] = drop;
       return drop;
