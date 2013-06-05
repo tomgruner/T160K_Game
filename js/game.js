@@ -413,6 +413,10 @@ $(function() {
 		$('#share-tw').click(function() {
 			shareScoreToTwitter(score);
 		});
+
+		$('#play-it-again').click(function() {
+			window.location.reload();
+		});
 	}
 
 });
