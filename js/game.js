@@ -388,7 +388,7 @@ $(function() {
 	function gameLoaded() {
 		$('#loading').hide();
 		$('#game-holder').append('<img style="opacity:.30" id="bg-image" src="images/bg_init.jpg">');
-		$('#introScreen').show();
+		$('#intro-screen').slideDown();
 
 		//Add level select
 		for (var i in levels) {

@@ -99,6 +99,7 @@ height:80px;
   position: absolute;
   width:760px;
   height:480px;
+  display:none;
 }
 
 #situation {
