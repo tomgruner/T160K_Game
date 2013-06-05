@@ -77,14 +77,14 @@ $(function() {
 	}
 
 	function dragging_move(dx, dy) {
+		 
 		 if (dragging_umbrella && enable_umbrella_move) {
 		   enable_umbrella_move = false;
 		   setTimeout(function(){enable_umbrella_move = true}, 50);
 		   var changer = dx > 0 ? 1 : -1;
 		   if(Math.abs(dx) < 20) {
-		   		changer = changer * 1 /Math.abs(dx);
+		   		changer = changer * 1 / (20 - Math.abs(dx));
 		   }
-
 		   var newAngle = orig_angle  + (dx/3) + (dy/3 * changer);
 		   if(newAngle < -110) newAngle = -110;
 		   if(newAngle > 110) newAngle = 110;
