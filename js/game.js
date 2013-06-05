@@ -115,19 +115,19 @@ $(function() {
 	    }
 	}
 
-	$(document).mousemove(function(event) {
+	$(window).mousemove(function(event) {
 		move(event);
 	});
 
-	$(document).touchmove(function(event) {
+	$(window).bind('touchmove', function(event) {
 		move(event);
 	});
 
-	$(document).mouseup(function(event) {
+	$(window).mouseup(function(event) {
 	    dragging_umbrella = false;
 	});
 
-	$(document).touchend(function(event) {
+	$(window).bind('touchend', function(event) {
 	    dragging_umbrella = false;
 	});
 
