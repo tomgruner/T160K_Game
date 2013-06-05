@@ -11,8 +11,6 @@ $(function() {
 	 	drop_check_interval,
 	 	game_over_interval,
 	 	enable_umbrella_move = true,
-	 	orig_click_x,
-		orig_click_y,
 		orig_angle, 
 		dragging_umbrella,
 		umbrella_real_width,
@@ -56,22 +54,19 @@ $(function() {
 			x : x,
 			y : y,
 			scale : scale,
-			angle : rotation
+			angle : rotation,
+			bb: getExtendedBBox(umbrella_set)
 		}
 
 		//Position the umbrella
 		transformUmbrella(umbrella_set);
 
-		//Add a mouse down handler
-		umbrella_set.mousedown(function(event){
-			moveStart(event, umbrella_set);
-		});
-
-
-		//Add a mouse down handler
-		umbrella_set.touchstart(function(event){
-			moveStart(event, umbrella_set);
-		});
+		function dragging_start(event) {
+		    orig_angle = umbrella_set.custom_props['angle'];
+		    dragging_umbrella = umbrella_set;
+		}
+		
+		umbrella_set.drag(dragging_move, dragging_start, dragging_up);
 
 		umbrellas.push(umbrella_set);
 		umbrella_set.toFront();
@@ -79,6 +74,27 @@ $(function() {
 		circles.push(circle);
 		circle.toFront();
 
+	}
+
+	function dragging_move(dx, dy) {
+		 if (dragging_umbrella && enable_umbrella_move) {
+		   enable_umbrella_move = false;
+		   setTimeout(function(){enable_umbrella_move = true}, 50);
+		   var changer = dx > 0 ? 1 : -1;
+		   if(Math.abs(dx) < 20) {
+		   		changer = changer * 1 /Math.abs(dx);
+		   }
+
+		   var newAngle = orig_angle  + (dx/3) + (dy/3 * changer);
+		   if(newAngle < -110) newAngle = -110;
+		   if(newAngle > 110) newAngle = 110;
+		   dragging_umbrella.custom_props['angle'] = newAngle;
+	       transformUmbrella(dragging_umbrella);
+	    }
+	}
+
+	function dragging_up() {
+		dragging_umbrella = false;
 	}
 
 	function getExtendedBBox(element) {
@@ -89,47 +105,19 @@ $(function() {
 	}
 
 	function transformUmbrella(umbrella_set) {
+
 		umbrella_set.transform("");
-		var bb = getExtendedBBox(umbrella_set);
+		
 		var props = umbrella_set.custom_props;
-		umbrella_set.transform('t' + (props['x'] - bb['cx']) + ',' + (props['y'] - bb['y2']) 
+		var bb = props.bb;
+		var transform = 't' + (props['x'] - bb['cx']) + ',' + (props['y'] - bb['y2']) 
 				   			 + 's' + props['scale'] + ',' + props['scale'] + ',' + bb['cx'] + ',' + bb['y2']
-				             + 'r' + props['angle'] + ','  + bb['cx'] + ',' + bb['y2']);
+				             + 'r' + props['angle'] + ','  + bb['cx'] + ',' + bb['y2'];
+		umbrella_set.transform(transform);
 	}
 
 
-	function moveStart(event, umbrella_set) {
-	    orig_click_x = event.screenX;
-	    orig_click_y = event.screenY;
-	    orig_angle = umbrella_set.custom_props['angle'];
-	    dragging_umbrella = umbrella_set;
-	}
-
-	function move(event) {
-		 if (dragging_umbrella && enable_umbrella_move) {
-		   enable_umbrella_move = false;
-		   setTimeout(function(){enable_umbrella_move = true}, 50);
-		   var newAngle = orig_angle - ((orig_click_x - event.screenX) / 2);
-		   dragging_umbrella.custom_props['angle'] = newAngle;
-	       transformUmbrella(dragging_umbrella);
-	    }
-	}
-
-	$(window).mousemove(function(event) {
-		move(event);
-	});
-
-	$(window).bind('touchmove', function(event) {
-		move(event);
-	});
-
-	$(window).mouseup(function(event) {
-	    dragging_umbrella = false;
-	});
-
-	$(window).bind('touchend', function(event) {
-	    dragging_umbrella = false;
-	});
+	
 
 
 	/**************** Rain Drop Handling **************************/
