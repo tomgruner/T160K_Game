@@ -63,11 +63,14 @@ $(function() {
 		transformUmbrella(umbrella_set);
 
 		//Add a mouse down handler
-		umbrella_set.mousedown(function(event) {
-		    orig_click_x = event.screenX;
-		    orig_click_y = event.screenY;
-		    orig_angle = umbrella_set.custom_props['angle'];
-		    dragging_umbrella = umbrella_set;
+		umbrella_set.mousedown(function(event){
+			moveStart(event, umbrella_set);
+		});
+
+
+		//Add a mouse down handler
+		umbrella_set.touchstart(function(event){
+			moveStart(event, umbrella_set);
 		});
 
 		umbrellas.push(umbrella_set);
@@ -94,7 +97,15 @@ $(function() {
 				             + 'r' + props['angle'] + ','  + bb['cx'] + ',' + bb['y2']);
 	}
 
-	$(document).mousemove(function(event) {
+
+	function moveStart(event, umbrella_set) {
+	    orig_click_x = event.screenX;
+	    orig_click_y = event.screenY;
+	    orig_angle = umbrella_set.custom_props['angle'];
+	    dragging_umbrella = umbrella_set;
+	}
+
+	function move(event) {
 		 if (dragging_umbrella && enable_umbrella_move) {
 		   enable_umbrella_move = false;
 		   setTimeout(function(){enable_umbrella_move = true}, 50);
@@ -102,10 +113,21 @@ $(function() {
 		   dragging_umbrella.custom_props['angle'] = newAngle;
 	       transformUmbrella(dragging_umbrella);
 	    }
+	}
+
+	$(document).mousemove(function(event) {
+		move(event);
 	});
 
+	$(document).touchmove(function(event) {
+		move(event);
+	});
 
 	$(document).mouseup(function(event) {
+	    dragging_umbrella = false;
+	});
+
+	$(document).touchend(function(event) {
 	    dragging_umbrella = false;
 	});
 
@@ -116,7 +138,7 @@ $(function() {
 	function makeSplash(x,y,to_x,to_y, size, speed, color) {
 		var sp = paper.circle(x, y, size);
 		sp.attr({fill: color, stroke:'none'});
-		sp.animate({cx: to_x, cy: to_y, opacity:.0}, speed, function() { sp.remove(); });	
+		sp.animate({cx: to_x, cy: to_y, opacity:0}, speed, function() { sp.remove(); });	
 	}
 
 
