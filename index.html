@@ -20,13 +20,6 @@
 	<link href='http://fonts.googleapis.com/css?family=Monoton|VT323' rel='stylesheet' type='text/css'>
 	<link href='./css/game.css' rel='stylesheet' type='text/css'>
 
-	<!-- [if lt IE 9]
-	 <style type="text/css">
-	 	#bg-image {
-			display:none;
-	 	}
-	 </style>
-	 [endif] -->
 </head>
 <body>
 	<div id="container">
@@ -42,6 +35,7 @@
 			<div id="score-display"></div>
 			<div id="loading">loading game</div>
 			<div id="intro-screen">
+				<div id="bg-images"></div>
 				<div id="game-title">T160K Libraries in Exile</div>	
 				<div id="situation">
 					The Situation: <br>
@@ -56,35 +50,33 @@
 
 					<span style="color:orange">Select a Level:</span>
 				</div>
-				
-				
 				<div id="levels">
 				</div>
+			</div>
+			<div id="level-complete">
+					Level Complete!
+					<div id="next-level">Next Level &gt;&gt;</div>
 				</div>
-				<div id="level-complete">
-						Level Complete!
-						<div id="next-level">Next Level &gt;&gt;</div>
-					</div>
-				<div id="game-complete">
-					Mission Accomplished!
+			<div id="game-complete">
+				Mission Accomplished!
+			</div>
+			<div id="game-over">
+				Game Over
+			</div>
+			<div id="next-options"> 
+				<div >Your score: <span id="share-score-display"></span><br> Share it!</div>
+				<br>
+				<!-- http://simpleicons.org/ -->
+				<div class="social-button icon-fb" id="share-fb" >
+					<img src="images/facebook.png" />
 				</div>
-				<div id="game-over">
-					Game Over
+				<div class="social-button icon-tw" id="share-tw" >
+					<img src="images/twitter.png" />
 				</div>
-				<div id="next-options"> 
-					<div >Your score: <span id="share-score-display"></span><br> Share it!</div>
-					<br>
-					<!-- http://simpleicons.org/ -->
-					<div class="social-button icon-fb" id="share-fb" >
-						<img src="images/facebook.png" />
-					</div>
-					<div class="social-button icon-tw" id="share-tw" >
-						<img src="images/twitter.png" />
-					</div>
-					<div id="play-it-again" style="clear:left;">
-						Play it again!
-					</div>
+				<div id="play-it-again" style="clear:left;">
+					Play it again!
 				</div>
+			</div>
 			<div id="canvas"></div>
 		</div>
 

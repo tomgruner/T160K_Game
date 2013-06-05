@@ -345,7 +345,7 @@ $(function() {
 		var bg_src = image_resources[level['bg']]['src'];
 		$('#intro-screen').slideUp();
 		$('#bg-image').remove();
-		$('#game-holder').append('<img id="bg-image" src="' + bg_src + '">');
+		$('#bg-images').append('<img id="bg-image" src="' + bg_src + '">');
 
 		for (var index in level['books']) {
 			//Call addImageToPaper with the arguments for the book image
