@@ -224,7 +224,9 @@ $(function() {
 
 	function addImageToPaper(image_resource_key, x, y, scale, rotation) {
 		var image = image_resources[image_resource_key]['image'];
-		return paper.image(image.src, x, y, image.width * scale, image.height * scale);
+		var p_image = paper.image(image.src, x, y, image.width * scale, image.height * scale);
+		p_image.rotate(rotation);
+		return p_image;
 	}
 
 

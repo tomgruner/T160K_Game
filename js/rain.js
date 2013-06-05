@@ -41,8 +41,8 @@
 
       var scale = self.config.size / 10;
 
-      var drop = self.canvas.image('images/drop_1.png', startPoint, -30, 18*scale,30*scale);
-
+      var drop = self.canvas.image('images/drop_1.png', startPoint + (offset / 2), -30, 18*scale,30*scale);
+      drop.toBack();
       drop
         .rotate(self.angle)
         .animate({transform: 'r' + self.angle + 't0' + ',' + (self.canvas.height + Math.abs(offset /2))}, speed, function() { delete self.drops[drop.id]; drop.remove();  });
