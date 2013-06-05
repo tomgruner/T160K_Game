@@ -1,0 +1,248 @@
+body {
+  background-color:#1e1a1a;
+  margin:0px;
+  padding:0px;
+  font-family:arial,sans-serif;
+  color:#fff;
+}
+
+img {
+  border:0px;
+}
+
+#container {
+  width:760px;
+  margin:40px auto;
+}
+
+#header {
+height:80px;
+}
+
+#lead-in {
+  color:#ddd;
+  float:right;
+  margin:2px 20px;
+  padding:0px;
+  width:400px;
+  font-size:12px;
+}
+
+#header-donate {
+  float:right;
+  font-family: 'Monoton',  sans-serif;
+  color:orange;
+  font-size:25px;
+  text-decoration:none;
+}
+
+#canvas {
+	position: absolute;
+	top:0px;
+	z-index:5;
+	border:3px solid #222;
+  border-radius:2;
+}
+
+#game-holder {
+	position: relative;
+	width:760;
+  height:480px;
+}
+
+#bg-image {
+	z-index:1;
+	position: absolute;
+	top:0px;
+}
+
+#score-display {
+	z-index:10;
+	position: absolute;
+	top:5px;
+	right:5px;
+	color:#fff;
+	font-family: 'Monoton',  sans-serif;
+	font-size:24px;
+	opacity: .7;
+}
+
+#loading {
+	position: absolute;
+	top:100px;
+	left:150px;
+	color:#fff;
+	font-size:50px;
+	font-family: 'Monoton',  sans-serif;
+}
+
+#intro-screen {
+  position: absolute;
+  width:760px;
+  height:480px;
+}
+
+#situation {
+  position: absolute;
+  top:75px;
+  left:50px;
+  width:660px;
+  color:#fff;
+  font-size:22px;
+  font-family:'VT323', sans-serif;
+  z-index:10;
+}
+
+#mission {
+	position: absolute;
+	top:185px;
+	left:50px;
+  width:660px;
+	color:#fff;
+	font-size:22px;
+	font-family:'VT323', sans-serif;
+  z-index:10;
+}
+
+#game-title {
+  position: absolute;
+  top:25px;
+  left:50px;
+  color:#fff;
+  font-size:25px;
+  font-family: 'Monoton',  sans-serif;
+}
+
+
+
+#levels {
+	position: absolute;
+	top:330px;
+	left:50px;
+	z-index: 10;
+}
+
+#levels .level {
+	font-family:'VT323';
+	font-size:14px;
+	text-align: center;
+	cursor:pointer;
+	width:100px;
+	height: 80px;
+	padding-top: 20px;
+	border:3px double #ccc;
+	border-radius: 6px;
+	float:left;
+	cursor: pointer;
+	display: block;
+	margin-right:15px;
+}
+
+#level-1, #level-3 {
+	background-image: url(../images/bg_1.jpg);
+}
+#level-2 {
+	background-image: url(../images/bg_2.jpg);
+	background-position: top right; 
+}
+
+#levels .level:hover {
+	background-image: none;
+	background-color: #600;
+}
+
+.level-title {
+	font-family: 'Monoton';
+	font-size:16px;
+}
+
+#level-complete, #game-complete, #game-over {
+	display: none;
+	position: absolute;
+	text-align: center;
+	top:30px;
+	left:100px;
+	font-family: 'Monoton';
+	font-size: 30px;
+	z-index:10;
+	width:580px;
+	height:200px;
+	padding-top: 70px;
+}
+
+#play-1 {
+  position: absolute;
+  z-index: 10;
+  right:10px;
+  top:37px;
+  font-family: 'Monoton';
+  font-size: 25px;
+  color:orange;
+  cursor:pointer;
+  text-align: right;
+}
+
+#next-options {
+  display: none;
+  position: absolute;
+  top:240px;
+  left:100px;
+  font-family: 'VT323';
+  font-size:20px;
+  z-index:10;
+}
+
+
+#share-fb {
+  cursor:pointer; 
+}
+
+#share-tw  {
+  cursor:pointer;
+}
+
+.icon-fb {
+  background-color: #3b559f;
+}
+
+.icon-tw {
+  background-color: #00acee;
+}
+
+.icon-rss {
+  background-color: orange;
+}
+
+.social-button {
+  height:48px;
+  width:48px;
+  float:left;
+  margin:10px 10px 10px 0px;
+  border-radius: 2px;
+  display:block;
+}
+
+#game-over {
+  color:orange;
+  font-family:'VT323', sans-serif;
+  font-size: 70px;
+}
+
+#next-level {
+	color:orange;
+	cursor: pointer;
+}
+
+.no-select {
+	-webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#content {
+  margin-top:40px;
+}
+

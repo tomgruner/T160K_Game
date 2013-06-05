@@ -1,0 +1,94 @@
+<html>
+<head>
+	<title>T160K Libraries in Exile Game</title>
+	<script type="text/javascript" src="js/levels.js"></script>
+	<script type="text/javascript" src="js/raphael.custom.js"></script>
+	<script type="text/javascript" src="js/jquery-1.10.0.min.js"></script>
+	<script type="text/javascript" src="js/social.js"></script>
+	<script type="text/javascript" src="js/rain.js"></script>
+	<script type="text/javascript" src="js/game.js"></script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-41480125-1', 'orangutaninteractive.com');
+	  ga('send', 'pageview');
+
+	</script>
+	<link href='http://fonts.googleapis.com/css?family=Monoton|VT323' rel='stylesheet' type='text/css'>
+	<link href='./css/game.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div id="container">
+		<div id="header" class="no-select">
+
+			<a id="header-donate" href="https://www.indiegogo.com/projects/timbuktu-libraries-in-exile" target="_blank">Donate &gt;&gt;</a>
+			<p id="lead-in"> Help us save the REAL ancient manuscripts from destruction in Mali. To learn more about how Timbuktu Libraries in Exile is saving the ancient libraries, click Donate!</p>
+			<a href="http://t160k.org/" target="_blank">
+			<img src="images/logo.png" />
+			</a>
+		</div>
+		<div id="game-holder" class="no-select">
+			<div id="score-display"></div>
+			<div id="loading">loading game</div>
+			<div id="intro-screen">
+				<div id="game-title">T160K Libraries in Exile</div>	
+				<div id="situation">
+					The Situation: <br>
+					300,000 ancient manuscripts from the Timbuktu Library in Mali have been hidden in the humid south to keep them safe.
+					But now there are new dangers: seasonal rains and mold
+				</div>
+				<div id="mission">
+					<div id="play-1" class="level" data-level="1">Play! &gt;&gt;</div>
+					Your Mission: <br>
+					Keep the rain drops from hitting the books!<br>
+					Rotate the umbrellas by dragging them left and right<br><br><br>
+
+					<span style="color:orange">Select a Level:</span>
+				</div>
+				
+				
+				<div id="levels">
+				</div>
+				</div>
+				<div id="level-complete">
+						Level Complete!
+						<div id="next-level">Next Level &gt;&gt;</div>
+					</div>
+				<div id="game-complete">
+					Mission Accomplished!
+				</div>
+				<div id="game-over">
+					Game Over
+				</div>
+				<div id="next-options"> 
+					<div >Your score: <span id="share-score-display"></span><br> Share it!</div>
+					<br>
+					<!-- http://simpleicons.org/ -->
+					<div class="social-button icon-fb" id="share-fb" >
+						<img src="images/facebook.png" />
+					</div>
+					<div class="social-button icon-tw" id="share-tw" >
+						<img src="images/twitter.png" />
+					</div>
+					<div id="save-real-books">
+					</div>
+				</div>
+			<div id="canvas"></div>
+		</div>
+
+		<div id="content">
+			<a href="http://t160k.org/" target="_blank">
+				<img src="images/logo.png" />
+			</a><br>
+			<a class="social-button icon-rss" href="http://t160k.org/feed/" target="_blank"><img src="images/rss.png" alt="twitter"/></a>
+			<a class="social-button icon-tw" href="https://twitter.com/t160k" class="twitter" target="_blank"><img src="images/twitter.png" alt="twitter"/></a>
+			<a class="social-button icon-fb" href="https://www.facebook.com/T160k" class="facebook" target="_blank"><img src="images/facebook.png" alt="Facebook"/></a>
+			<div style="clear:both;"></div>
+		</div>
+
+	</div>
+</body>
+</html>
